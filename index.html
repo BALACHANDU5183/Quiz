@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 style="text-align: center;">HTML QUIZ</h2>
+        <form id="quizForm">
+            <div class="question">1. What does HTML stand for?</div>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="a"> Hyperlinks and Text Markup Language</label>
+                <label><input type="radio" name="q1" value="b"> Home Tool Markup Language</label>
+                <label><input type="radio" name="q1" value="c"> Hyper Text Markup Language</label>
+                <label><input type="radio" name="q1" value="d"> Hyper Transfer Markup Language</label>
+            </div>
+            
+            <div class="question">2. Which file extension is correct for an HTML file?</div>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="a"> .htm</label>
+                <label><input type="radio" name="q2" value="b"> .html</label>
+                <label><input type="radio" name="q2" value="c"> .web</label>
+                <label><input type="radio" name="q2" value="d"> Both a and b</label>
+            </div>
+
+            <div class="question">3. Which HTML tag is used to create a hyperlink?</div>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="a"> a) &lt;link&gt;</label>
+                <label><input type="radio" name="q3" value="b"> b) &lt;a&gt;</label>
+                <label><input type="radio" name="q3" value="c"> c) &lt;href&gt;</label>
+                <label><input type="radio" name="q3" value="d"> d) &lt;hlink&gt;</label>
+            </div>
+            
+            <div class="question">4. What is the correct HTML tag for inserting a line break?</div>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="a"> a) &lt;br&gt;</label>
+                <label><input type="radio" name="q4" value="b"> b) &lt;lb&gt;</label>
+                <label><input type="radio" name="q4" value="c"> c) &lt;break&gt;</label>
+                <label><input type="radio" name="q4" value="d"> d) &lt;newline&gt;</label>
+            </div>
+            
+            <div class="question">5. Which tag defines an unordered list?</div>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="a"> a) &lt;ul&gt;</label>
+                <label><input type="radio" name="q5" value="b"> b) &lt;ol&gt;</label>
+                <label><input type="radio" name="q5" value="c"> c) &lt;li&gt;</label>
+                <label><input type="radio" name="q5" value="d"> d) &lt;list&gt;</label>
+            </div>
+
+            <div class="question">6. What is the correct HTML tag for inserting an image?</div>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="a"> a) &lt;img&gt;<br></label>
+                <label><input type="radio" name="q6" value="b"> b) &lt;image&gt;<br></label>
+                <label><input type="radio" name="q6" value="c"> c) &lt;pic&gt;<br></label>
+                <label><input type="radio" name="q6" value="d"> d) &lt;photo&gt;<br></label>
+            </div>
+            
+            <div class="question">7. Which attribute is used to provide an alternative text for an image?</div>
+            <div class="answers">
+                <label><input type="radio" name="q7" value="a"> a) title<br></label>
+                <label><input type="radio" name="q7" value="b"> b) alt<br></label>
+                <label><input type="radio" name="q7" value="c"> c) src<br></label>
+                <label><input type="radio" name="q7" value="d"> d) description<br></label>
+            </div>
+            
+            <div class="question">8. Which HTML tag is used for creating a table?</div>
+            <div class="answers">
+                <label><input type="radio" name="q8" value="a"> a) &lt;table&gt;<br></label>
+                <label><input type="radio" name="q8" value="b"> b) &lt;tab&gt;<br></label>
+                <label><input type="radio" name="q8" value="c"> c) &lt;t&gt;<br></label>
+                <label><input type="radio" name="q8" value="d"> d) &lt;tr&gt;<br></label>
+            </div>
+            
+            <div class="question">9. What is the correct HTML tag for the largest heading?</div>
+            <div class="answers">
+                <label><input type="radio" name="q9" value="a"> a) &lt;h1&gt;<br></label>
+                <label><input type="radio" name="q9" value="b"> b) &lt;h6&gt;<br></label>
+                <label><input type="radio" name="q9" value="c"> c) &lt;head&gt;<br></label>
+                <label><input type="radio" name="q9" value="d"> d) &lt;header&gt;<br></label>
+            </div>
+            
+            <div class="question">10. Which HTML tag is used to define a paragraph?</div>
+            <div class="answers">
+                <label><input type="radio" name="q10" value="a"> a) &lt;para&gt;<br></label>
+                <label><input type="radio" name="q10" value="b"> b) &lt;p&gt;<br></label>
+                <label><input type="radio" name="q10" value="c"> c) &lt;paragraph&gt;<br></label>
+                <label><input type="radio" name="q10" value="d"> d) &lt;text&gt;<br></label>
+            </div>
+            
+            <div class="button-container">
+                <button type="button" onclick="checkAnswers()">Submit</button>
+                <button type="button" onclick="resetQuiz()">Reset</button>
+            </div>
+            
+
+        </form>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            let answers = { q1: "c", q2: "d", q3: "b", q4: "a", q5: "a", q6: "a", q7: "b", q8: "a", q9: "a", q10: "b"};
+            let form = document.getElementById("quizForm");
+            
+            for (let key in answers) {
+                let selected = form.elements[key].value;
+                if (selected === answers[key]) {
+                    score++;
+                }
+            }
+            
+            document.getElementById("result").innerText = "Your Score: " + score + "/10";
+        }
+
+        function resetQuiz() {
+            let form = document.getElementById("quizForm");
+            form.reset(); 
+            document.getElementById("result").innerText = ""; 
+}
+
+    </script>
+</body>
+</html>
